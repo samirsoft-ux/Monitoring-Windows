@@ -26,14 +26,14 @@ scrape_configs:
     - targets: ['localhost:9182']
 
       labels:
-        instance: "my-windows-hostname"
+        instance: "my-windows-hostname" #nombre para poder categorizar varias VM's
         region: "us-south"
 
 # Connection
 remote_write:
-  - url: "https://ingest.us-south.monitoring.cloud.ibm.com/prometheus/remote/write"
+  - url: "https://ingest.us-south.monitoring.cloud.ibm.com/prometheus/remote/write" #coger el url del link "https://cloud.ibm.com/docs/monitoring?topic=monitoring-prometheus_remote_write#:~:text=10.000-,Puntos%20finales%20de%20ingesti%C3%B3n,-En%20la%20tabla" de acuerdo a la región en que se encuentra 
 
-    bearer_token: "8cda910d-55a8-4cc5-a169-010635a9fe28"
+    bearer_token: "8cda910d-55a8-4cc5-a169-010635a9fe28" #coger del panel de control de monitoring
 
     write_relabel_configs:
       - source_labels: ["__name__"]
