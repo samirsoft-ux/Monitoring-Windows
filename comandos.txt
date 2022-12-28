@@ -1,0 +1,11 @@
+.\nssm.exe install windows_exporter C:\Users\arons\Downloads\windows_exporter-0.20.0-amd64.exe --collectors.enabled "os,cs,cpu,cpu_info,logical_disk,system,net"
+.\nssm.exe start windows_exporter
+
+.\nssm.exe install prometheus C:\Users\arons\Downloads\prometheus-2.41.0-rc.0.windows-amd64\prometheus-2.41.0-rc.0.windows-amd64\prometheus.exe
+.\nssm.exe start prometheus
+
+
+nssm set prometheus AppStdout c:\Users\arons\Downloads\nssm-2.24-101-g897c7ad\nssm-2.24-101-g897c7ad\win64\nssm.exe\logs\service.log
+
+sc delete service_name
+sc stop service_name
